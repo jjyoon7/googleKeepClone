@@ -12,10 +12,14 @@ class App {
     handleFormClick() {
         const isFormClicked = this.$form.contains(event.target);
         if(isFormClicked) {
-            //open form
+            this.openForm();
         } else {
             //close form
-        }
+        }    
+    }
+
+    openForm() {
+        this.$form.classList.add('form-open');
     }
 }
 
