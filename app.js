@@ -10,7 +10,7 @@ class App {
     addEventListerns() {
         //initiate all the addEventlisteners
         document.body.addEventListener('click', event => {
-            this.handleFormClick();
+            this.handleFormClick(event);
         });
     }
 
