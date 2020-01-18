@@ -2,6 +2,7 @@ class App {
     constructor() {
         this.$form = document.querySelector("#form");
         this.$noteTitle = document.querySelector("#note-title");
+        this.$noteText = document.querySelector("#note-text");
         this.$formButtons = document.querySelector("#form-buttons");
 
         this.addEventListerns();
@@ -12,6 +13,13 @@ class App {
         document.body.addEventListener('click', event => {
             this.handleFormClick(event);
         });
+
+        this.$form.addEventListener('submit', event => {
+            event.preventDefault();
+            const title = this.$noteTitle;
+            const text =  this.$noteText;
+
+        })
     }
 
     handleFormClick(event) {
