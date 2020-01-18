@@ -55,8 +55,9 @@ class App {
             title: note.title,
             text: note.text,
             color: 'white',
-            id: this.notes.length > 0 ? this.notes[length - 1].id + 1 : 1;
-        }
+            id: this.notes.length > 0 ? this.notes[length - 1].id + 1 : 1
+        };
+        this.notes = [...this.notes, newNote];
     }
 }
 
