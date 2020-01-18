@@ -18,7 +18,7 @@ class App {
             event.preventDefault();
             const title = this.$noteTitle;
             const text =  this.$noteText;
-
+            const hasNote = tile || text;
         })
     }
 
