@@ -1,6 +1,11 @@
 class App {
     constructor() {
-        console.log('workds')
+        this.addEventListerns();
+    }
+
+    addEventListerns() {
+        //initiate all the addEventlisteners
+        document.body.addEventListener('click', handleFormClick);
     }
 }
 
