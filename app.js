@@ -19,6 +19,11 @@ class App {
             const title = this.$noteTitle;
             const text =  this.$noteText;
             const hasNote = tile || text;
+
+            if(hasNote) {
+                //add note
+                this.addNote({ title, text });
+            }
         })
     }
 
@@ -41,6 +46,10 @@ class App {
         this.$form.classList.remove('form-open');
         this.$noteTitle.style.display = 'none';
         this.$formButtons.style.display = 'none'; 
+    }
+
+    addNote() {
+
     }
 }
 
