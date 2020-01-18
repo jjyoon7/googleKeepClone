@@ -10,7 +10,12 @@ class App {
     }
 
     handleFormClick() {
-        const isFormClicked = this.$form.contains(event.target)
+        const isFormClicked = this.$form.contains(event.target);
+        if(isFormClicked) {
+            //open form
+        } else {
+            //close form
+        }
     }
 }
 
