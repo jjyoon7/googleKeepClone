@@ -61,6 +61,9 @@ class App {
         };
         this.notes = [...this.notes, newNote];
         this.displayNotes();
+        this.closeForm();
+        this.$noteTitle.value = "";
+        this.$noteText.value = "";
     }
 
     displayNotes() {
@@ -79,6 +82,7 @@ class App {
           </div>
         </div>
      `).join("");
+    
     }
 }
 
