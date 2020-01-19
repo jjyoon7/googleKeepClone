@@ -2,9 +2,9 @@ class App {
     constructor() {
         this.notes = [];
 
-        this.$notes = document.querySelector("#notes");
         this.$placeholder = document.querySelector('#placeholder')
         this.$form = document.querySelector("#form");
+        this.$notes = document.querySelector("#notes");
         this.$noteTitle = document.querySelector("#note-title");
         this.$noteText = document.querySelector("#note-text");
         this.$formButtons = document.querySelector("#form-buttons");
@@ -20,8 +20,8 @@ class App {
 
         this.$form.addEventListener('submit', event => {
             event.preventDefault();
-            const title = this.$noteTitle;
-            const text =  this.$noteText;
+            const title = this.$noteTitle.value;
+            const text =  this.$noteText.value;
             const hasNote = title || text;
 
             if(hasNote) {
@@ -68,17 +68,17 @@ class App {
         this.$placeholder.style.display = hasNotes ? 'none' : 'flex';
 
         this.$notes.innerHTML = this.notes.map(note => `
-            <div style="background: ${note.color};" class="note">
-                <div class="${note.title && 'note-title'}">${note.title}</div>
-                <div class="note-text">${note.text}</div>
-                <div class="toolbar-container">
-                    <div class="toolbar">
-                    <img class="toolbar-color" src="https://icon.now.sh/palette">
-                    <img class="toolbar-delete" src="https://icon.now.sh/delete">
-                    </div>
-                </div>            
+        <div style="background: ${note.color};" class="note">
+          <div class="${note.title && 'note-title'}">${note.title}</div>
+          <div class="note-text">${note.text}</div>
+          <div class="toolbar-container">
+            <div class="toolbar">
+              <img class="toolbar-color" src="https://icon.now.sh/palette">
+              <img class="toolbar-delete" src="https://icon.now.sh/delete">
             </div>
-        `);
+          </div>
+        </div>
+     `).join("");
     }
 }
 
