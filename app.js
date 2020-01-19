@@ -2,6 +2,7 @@ class App {
     constructor() {
         this.notes = [];
 
+        this.$placeholder = document.querySelector('#placeholder')
         this.$form = document.querySelector("#form");
         this.$noteTitle = document.querySelector("#note-title");
         this.$noteText = document.querySelector("#note-text");
@@ -58,7 +59,12 @@ class App {
             id: this.notes.length > 0 ? this.notes[this.notes.length - 1].id + 1 : 1
         };
         this.notes = [...this.notes, newNote];
-        console.log(this.notes);
+        this.displayNotes();
+    }
+
+    displayNotes() {
+        const hasNotes = this.notes.length > 0;
+        hasNotes ? this.$placeholder.style.display = 'none' : this.$placeholder.style.display = 'flex';
     }
 }
 
