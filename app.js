@@ -64,7 +64,7 @@ class App {
 
     displayNotes() {
         const hasNotes = this.notes.length > 0;
-        hasNotes ? this.$placeholder.style.display = 'none' : this.$placeholder.style.display = 'flex';
+        this.$placeholder.style.display = hasNotes ? 'none' : 'flex';
     }
 }
 
