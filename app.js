@@ -97,7 +97,6 @@ class App {
         const $selectedNote = event.target.closest('.note');
         if(!$selectedNote) return;
         //deconstructing the $selectedNote.children
-        console.log($selectedNote.children)
         const [$noteTitle, $noteText] = $selectedNote.children;
         this.title = $noteTitle.innerText;
         this.text = $noteText.innerText;
@@ -113,6 +112,7 @@ class App {
     }
 
     editNote() {
+        //getting current clicked modals value
         const title = this.$modalTitle.value;
         const text = this.$modalText.value;
         this.notes = this.notes.map(note => 
@@ -123,7 +123,6 @@ class App {
     }
 
     closeModal() {
-        console.log('close modal')
         this.editNote();
         this.$modal.classList.toggle('open-modal');
     }
