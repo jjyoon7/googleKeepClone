@@ -32,6 +32,7 @@ class App {
         });
 
         this.$formCloseButton.addEventListener('click', event => {
+            event.stopPropagation();
             this.closeForm();
         })
     }
