@@ -97,6 +97,7 @@ class App {
         const $selectedNote = event.target.closest('.note');
         if(!$selectedNote) return;
         //deconstructing the $selectedNote.children
+        console.log($selectedNote.children)
         const [$noteTitle, $noteText] = $selectedNote.children;
         this.title = $noteTitle.innerText;
         this.text = $noteText.innerText;
@@ -115,6 +116,7 @@ class App {
         const title = this.$modalTitle.value;
         const text = this.$modalText.value;
         this.notes = this.notes.map(note => 
+            //we need to change the this.id to number, because it is a string
             note.id === Number(this.id) ? {...note, title, text} : note
         );
         this.displayNotes();
