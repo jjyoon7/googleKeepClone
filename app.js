@@ -137,7 +137,9 @@ class App {
         if(!event.target.matches('.toolbar-color')) return;
         // console.log(event.target.nextElementSibling);
         this.id = event.target.nextElementSibling.dataset.id;
-        event.target.getBoundingClientReact();
+        const noteCoords = event.target.getBoundingClientReact();
+        const horizontal = noteCoords.left + window.scrollX;
+        const vertical = noteCoords.top + window.scrollY;
     }
 
     displayNotes() {
