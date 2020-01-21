@@ -29,6 +29,10 @@ class App {
             this.openModal(event);
         });
 
+        document.body.addEventListener('mouseover', event => {
+            this.openTooltip(event);
+        })
+
         this.$form.addEventListener('submit', event => {
             event.preventDefault();
             const title = this.$noteTitle.value;
@@ -100,6 +104,7 @@ class App {
         const [$noteTitle, $noteText] = $selectedNote.children;
         this.title = $noteTitle.innerText;
         this.text = $noteText.innerText;
+        //data-id from html element
         this.id = $selectedNote.dataset.id;
     }
 
@@ -127,10 +132,18 @@ class App {
         this.$modal.classList.toggle('open-modal');
     }
 
+    openTooltip(event) {
+        // console.log(event.target.matches('.toolbar-color'))
+        if(!event.target.matches('.toolbar-color')) return;
+        console.log(event.target.nextElementSibling);
+        // this.id = event.target.nextElementSibling.dataset.id;
+    }
+
     displayNotes() {
         const hasNotes = this.notes.length > 0;
         this.$placeholder.style.display = hasNotes ? 'none' : 'flex';
-
+        //by using data-id in html element, you can chose specific object with id later,
+        //for the edit and update the note
         this.$notes.innerHTML = this.notes.map(note => `
         <div style="background: ${note.color};" class="note" data-id="${note.id}">
           <div class="${note.title && 'note-title'}">${note.title}</div>
