@@ -130,6 +130,8 @@ class App {
     }
 
     openModal(event) {
+        if(event.target.matches('.toolbar-delete')) return;
+
         if(event.target.closest('.note')) {
             this.$modal.classList.toggle('open-modal');
             this.$modalTitle.value = this.title;
