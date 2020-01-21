@@ -112,7 +112,7 @@ class App {
             id: this.notes.length > 0 ? this.notes[this.notes.length - 1].id + 1 : 1
         };
         this.notes = [...this.notes, newNote];
-        this.displayNotes();
+        this.render();
         this.closeForm();
         this.$noteTitle.value = "";
         this.$noteText.value = "";
@@ -147,7 +147,7 @@ class App {
             //we need to change the this.id to number, because it is a string
             note.id === Number(this.id) ? {...note, title, text} : note
         );
-        this.displayNotes();
+        this.render();
     }
 
     deleteNote(event) {
@@ -156,14 +156,14 @@ class App {
         const id = event.target.dataset.id;
 
         this.notes = this.notes.filter(note => note.id !== Number(id));
-        this.displayNotes();
+        this.render();
     }
 
     editColor(color) {
         this.notes = this.notes.map(note => 
             note.id === Number(this.id) ? {...note, color} : note
         );
-        this.displayNotes();
+        this.render();
     }
 
     closeModal() {
@@ -187,6 +187,15 @@ class App {
     closeTooltip(event) {
         if(!event.target.matches('.toolbar-color')) return;
         this.$colorTooltip.style.display = 'none';
+    }
+
+    render() {
+        this.saveNote();
+        this.display();
+    }
+
+    saveNote() {
+        localStorage.setItem('notes', JSON.stringify(this.notes))
     }
 
     displayNotes() {
