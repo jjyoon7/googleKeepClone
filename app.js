@@ -20,6 +20,7 @@ class App {
 
         this.$colorTooltip = document.querySelector('#color-tooltip');
 
+        this.render();
         this.addEventListerns();
     }
 
