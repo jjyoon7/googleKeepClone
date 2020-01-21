@@ -18,6 +18,8 @@ class App {
         this.$modalText = document.querySelector('.modal-text');
         this.$modalCloseButton = document.querySelector('.modal-close-button');
 
+        this.$colorTooltip = document.querySelector('#color-tooltip');
+
         this.addEventListerns();
     }
 
@@ -137,9 +139,13 @@ class App {
         if(!event.target.matches('.toolbar-color')) return;
         // console.log(event.target.nextElementSibling);
         this.id = event.target.nextElementSibling.dataset.id;
-        const noteCoords = event.target.getBoundingClientReact();
+        
+        const noteCoords = event.target.getBoundingClientRect();
         const horizontal = noteCoords.left + window.scrollX;
         const vertical = noteCoords.top + window.scrollY;
+
+        this.$colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`;
+        this.$colorTooltip.style.display = 'flex';
     }
 
     displayNotes() {
