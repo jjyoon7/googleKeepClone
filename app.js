@@ -163,7 +163,7 @@ class App {
         // console.log(event.target.matches('.toolbar-color'))
         if(!event.target.matches('.toolbar-color')) return;
         // console.log(event.target.nextElementSibling);
-        this.id = event.target.nextElementSibling.dataset.id;
+        this.id = event.target.dataset.id;
         
         const noteCoords = event.target.getBoundingClientRect();
         const horizontal = noteCoords.left - 100;
@@ -188,7 +188,7 @@ class App {
           <div class="note-text">${note.text}</div>
           <div class="toolbar-container">
             <div class="toolbar">
-              <img class="toolbar-color" src="https://icon.now.sh/palette">
+              <img class="toolbar-color" data-id="${note.id}" src="https://icon.now.sh/palette">
               <img class="toolbar-delete" src="https://icon.now.sh/delete">
             </div>
           </div>
