@@ -135,8 +135,9 @@ class App {
     openTooltip(event) {
         // console.log(event.target.matches('.toolbar-color'))
         if(!event.target.matches('.toolbar-color')) return;
-        console.log(event.target.nextElementSibling);
-        // this.id = event.target.nextElementSibling.dataset.id;
+        // console.log(event.target.nextElementSibling);
+        this.id = event.target.nextElementSibling.dataset.id;
+        event.target.getBoundingClientReact();
     }
 
     displayNotes() {
