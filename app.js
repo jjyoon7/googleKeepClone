@@ -46,6 +46,13 @@ class App {
             this.style.display = 'none';
         })
 
+        this.$colorTooltip.addEventListener('click', event => {
+            const color = event.target.dataset.color;
+            if(color) {
+                this.editColor(color);
+            }
+        })
+
         this.$form.addEventListener('submit', event => {
             event.preventDefault();
             const title = this.$noteTitle.value;
@@ -136,6 +143,13 @@ class App {
         this.notes = this.notes.map(note => 
             //we need to change the this.id to number, because it is a string
             note.id === Number(this.id) ? {...note, title, text} : note
+        );
+        this.displayNotes();
+    }
+
+    editColor(color) {
+        this.notes = this.notes.map(note => 
+            note.id === Number(this.id) ? {...note, color} : note
         );
         this.displayNotes();
     }
